@@ -7,19 +7,13 @@
 </head>
 
 <body>
-  <input type="text" id="input-name" name="input-name">
-  <div id="output"></div>
   <button onclick="test()">Test</button>
+  <div id="output"></div>
 </body>
 <script type="application/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
   function test() {
-    let input = $('#input-name')
-    let nameFromInput = input.val()
-    let params = {
-      name: nameFromInput
-    }
-    $.get('/test', params, function(serverResponse) {
+    $.get('/test', function(serverResponse) {
       let textFromServerResponse = serverResponse.text
       let outputDiv = $('#output')
 

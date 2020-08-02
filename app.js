@@ -11,8 +11,18 @@ app.use(express.urlencoded({extended: false}))
 app.get('/client', (req, res) => res.render('test'))
 
 app.get('/test', (req, res) => {
-  let name = req.query.name
-  res.send({text: 'Your name is ' + name})
+  let http = require('http');
+
+  var options = {
+    host: 'api.github.coms',
+    path: '/user'
+  };
+
+  callback = function(response) {
+    res.send({text: 'Your response is ' + response.headers.location})
+  }
+
+  http.request(options, callback).end();
 })
 
 
