@@ -14,7 +14,7 @@ app.get('/test', (req, res) => {
   let http = require('http');
 
   var options = {
-    host: 'api.github.coms',
+    host: 'api.github.com',
     path: '/user'
   };
 
